@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Products</title>
+</head>
+<body>
+<table style="width:100%">
+    <tr>
+        <th align="left">Code</th>
+        <th align="left">Name</th>
+        <th align="left">Description</th>
+        <th align="left">Buy Price</th>
+        <th align="left">Sell Price</th>
+        <th align="left">Qty</th>
+        <th align="left">Actions</th>
+    </tr>
+    <!--/*@thymesVar id="productList" type="java.util.List<io.gitlab.markcrowe.furniture.shop.app.model.Product>"*/-->
+    <tr th:each="product: ${productList}">
+        <td><span th:text="${product.code}"></span></td>
+        <td><span th:text="${product.name}"></span></td>
+        <td><span th:text="${product.description}"></span></td>
+        <td><span th:text="${product.buyPrice}"></span></td>
+        <td><span th:text="${product.sellPrice}"></span></td>
+        <td><span th:text="${product.quantityInStock}"></span></td>
+        <td></td>
+    </tr>
+</table>
+</body>
+</html>
