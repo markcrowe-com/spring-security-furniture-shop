@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Spring" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="spring-security-furniture-shop" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="io.gitlab.markcrowe.furniture.shop.app.SpringSecurityFurnitureShopApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
