@@ -1,5 +1,6 @@
 package io.gitlab.markcrowe.furniture.shop.app.web.controllers;
 
+import io.gitlab.markcrowe.furniture.shop.app.model.Product;
 import io.gitlab.markcrowe.furniture.shop.app.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,14 @@ public class ProductWebController {
     {
         var modelAndView = new ModelAndView("products");
         modelAndView.addObject("productList", productService.getAllProducts());
+        return modelAndView;
+    }
+
+    @GetMapping("add")
+    public ModelAndView getInsertProduct()
+    {
+        var modelAndView = new ModelAndView("product-insert");
+        modelAndView.addObject("product", new Product());
         return modelAndView;
     }
 }
