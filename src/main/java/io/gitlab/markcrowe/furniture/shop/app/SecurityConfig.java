@@ -1,5 +1,6 @@
 package io.gitlab.markcrowe.furniture.shop.app;
 
+import io.gitlab.markcrowe.furniture.shop.app.model.SimpleRoles;
 import io.gitlab.markcrowe.furniture.shop.app.model.SimpleUser;
 import io.gitlab.markcrowe.furniture.shop.app.services.SimpleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/").permitAll()
                 .requestMatchers(HttpMethod.GET, "/products").permitAll()
+                .requestMatchers(HttpMethod.GET, "/products/add").hasRole("SuperAdmin")
                 .and()
                 .formLogin()// This is the line that generates a login page
                 .defaultSuccessUrl("/products");//	The page to go when you log in
