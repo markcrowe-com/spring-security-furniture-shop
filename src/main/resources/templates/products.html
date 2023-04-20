@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Products</title>
 </head>
 <body>
+<header>
+    <h1>Product Catalog (Java Web 8)</h1>
+    <div sec:authorize="!isAuthenticated()">
+        Welcome Guest, <a href="/login">Login</a>
+    </div>
+    <div sec:authorize="isAuthenticated()">
+        Welcome <span sec:authentication="name"></span>, <a href="/logout">Logout</a>
+    </div>
+</header>
 <table style="width:100%">
     <tr>
         <th align="left">Code</th>
@@ -13,7 +22,7 @@
         <th align="left">Buy Price</th>
         <th align="left">Sell Price</th>
         <th align="left">Qty</th>
-        <th align="left">Actions</th>
+        <th align="left" sec:authorize="hasRole('SuperAdmin')">Actions</th>
     </tr>
     <!--/*@thymesVar id="productList" type="java.util.List<io.gitlab.markcrowe.furniture.shop.app.model.Product>"*/-->
     <tr th:each="product: ${productList}">
@@ -23,7 +32,7 @@
         <td><span th:text="${product.buyPrice}"></span></td>
         <td><span th:text="${product.sellPrice}"></span></td>
         <td><span th:text="${product.quantityInStock}"></span></td>
-        <td></td>
+        <td><a href="delete" sec:authorize="hasRole('SuperAdmin')">Delete</a></td>
     </tr>
 </table>
 </body>
