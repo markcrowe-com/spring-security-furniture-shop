@@ -33,7 +33,7 @@
         <td><span th:text="${product.buyPrice}"></span></td>
         <td><span th:text="${product.sellPrice}"></span></td>
         <td><span th:text="${product.quantityInStock}"></span></td>
-        <td sec:authorize="hasRole('SuperAdmin')"><a th:href="@{/products}">Delete</a></td>
+        <td sec:authorize="hasAnyRole('Admin', 'SuperAdmin')"><a th:href="@{/products/{code}/delete(code=${product.code})}">Delete</a></td>
     </tr>
 </table>
 </body>
