@@ -3,6 +3,8 @@ package io.gitlab.markcrowe.furniture.shop.app.services;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.NoSuchElementException;
+
 import io.gitlab.markcrowe.furniture.shop.app.model.Product;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,20 @@ public class ProductService {
         return productList.add(p);
     }
 
+    public Product getProductByCode(String code) {
+        for (Product product : productList) {
+            if (product.getCode().equalsIgnoreCase(code))
+                return product;
+        }
+        return null;
+    }
+
     public void deleteAProduct(String code) {
+        var theProduct = getProductByCode(code);
+
+        if (theProduct == null)
+            throw new NoSuchElementException(String.format("No product matches code '%s'", code));
+
         Iterator<Product> iterator = productList.iterator();
         while (iterator.hasNext()) {
             Product product = iterator.next();
