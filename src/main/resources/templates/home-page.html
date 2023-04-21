@@ -6,5 +6,29 @@
 </head>
 <body>
   <a th:href="@{/products}">Products</a>
+
+<form method="post" th:action="@{/login}">
+    <div>
+        <input type="hidden" name="username" value="bob" readonly  />
+        <input type="hidden" name="password" value="pass" readonly />
+        <input type="submit" value="Login Bob (SuperAdmin)" />
+    </div>
+</form>
+  <form method="post" th:action="@{/login}">
+      <div>
+          <input type="hidden" name="username" value="mary" readonly  />
+          <input type="hidden" name="password" value="pass" readonly />
+          <input type="submit" value="Login Mary (User)" />
+      </div>
+  </form>
+  <form method="post" th:action="@{/login}">
+      <div>
+          <input type="hidden" name="username" value="tom" readonly  />
+          <input type="hidden" name="password" value="pass" readonly />
+          <input type="submit" value="Login Tom (Admin)" />
+      </div>
+  </form>
+
+  <a th:href="@{/products/{code}/delete(code=${'XG809'})}">Delete Product XG809</a>
 </body>
 </html>
