@@ -8,13 +8,13 @@
 <header>
     <h1>Product Catalog (Java Web 8)</h1>
     <div sec:authorize="!isAuthenticated()">
-        Welcome Guest, <a href="/login">Login</a>
+        Welcome Guest, <a th:href="@{/login}">Login</a>
     </div>
     <div sec:authorize="isAuthenticated()">
-        Welcome <span sec:authentication="name"></span>, <a href="/logout">Logout</a>
+        Welcome <span sec:authentication="name"></span>, <a th:href="@{/logout}">Logout</a>
     </div>
 </header>
-<a href="products/add" sec:authorize="hasRole('SuperAdmin')">Insert Product</a>
+<a th:href="@{/products/add}" sec:authorize="hasRole('SuperAdmin')">Insert Product</a>
 <table style="width:100%">
     <tr>
         <th align="left">Code</th>
@@ -33,7 +33,7 @@
         <td><span th:text="${product.buyPrice}"></span></td>
         <td><span th:text="${product.sellPrice}"></span></td>
         <td><span th:text="${product.quantityInStock}"></span></td>
-        <td><a href="delete" sec:authorize="hasRole('SuperAdmin')">Delete</a></td>
+        <td sec:authorize="hasRole('SuperAdmin')"><a th:href="@{/products}">Delete</a></td>
     </tr>
 </table>
 </body>

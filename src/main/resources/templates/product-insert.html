@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head><title>Add a Product</title></head>
 <body>
 
-
+<a th:href="@{/products}">Back to Products</a>
 <!--/*@thymesVar id="product" type="io.gitlab.markcrowe.furniture.shop.app.model.Product"*/-->
 <form th:object="${product}" method="post">
     <table>
