@@ -1,0 +1,20 @@
+{
+	"recommendations": [
+		"maptz.camelcasenavigation",
+		"wmaurer.change-case",
+		"shengchen.vscode-checkstyle",
+		"streetsidesoftware.code-spell-checker",
+		"redhat.fabric8-analytics",
+		"vscjava.vscode-java-pack",
+		"george-alisson.html-preview-vscode",
+		"yzhang.markdown-all-in-one",
+		"bierner.markdown-footnotes",
+		"mervin.markdown-formatter",
+		"davidanson.vscode-markdownlint",
+		"tomoyukim.vscode-mermaid-editor",
+		"wraith13.open-in-github-desktop",
+		"vmware.vscode-boot-dev-pack",
+		"gruntfuggly.todo-tree",
+		"vscode-icons-team.vscode-icons"
+	]
+}
