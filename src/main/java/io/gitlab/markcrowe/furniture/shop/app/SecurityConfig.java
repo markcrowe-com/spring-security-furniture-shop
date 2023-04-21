@@ -28,10 +28,13 @@ public class SecurityConfig {
                 .requestMatchers(HttpMethod.GET, "/").permitAll()
                 .requestMatchers(HttpMethod.GET, "/products").permitAll()
                 .requestMatchers(HttpMethod.GET, "/products/add").hasRole("SuperAdmin")
+                .requestMatchers(HttpMethod.POST, "/products/add").hasRole("SuperAdmin")
                 .requestMatchers(HttpMethod.GET, "/products/*/delete").hasAnyRole("Admin", "SuperAdmin")
                 .and()
                 .formLogin()// This is the line that generates a login page
                 .defaultSuccessUrl("/products");//	The page to go when you log in
+
+        httpSecurity.csrf().disable();
         return httpSecurity.build();
     }
 
