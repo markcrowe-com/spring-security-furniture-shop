@@ -27,9 +27,9 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests()
                 .requestMatchers(HttpMethod.GET, "/").permitAll()
                 .requestMatchers(HttpMethod.GET, "/products").permitAll()
-                .requestMatchers(HttpMethod.GET, "/products/add").hasRole("SuperAdmin")
-                .requestMatchers(HttpMethod.POST, "/products/add").hasRole("SuperAdmin")
-                .requestMatchers(HttpMethod.GET, "/products/*/delete").hasAnyRole("Admin", "SuperAdmin")
+                .requestMatchers(HttpMethod.GET, "/products/add").hasRole(SimpleRoles.SuperAdmin)
+                .requestMatchers(HttpMethod.POST, "/products/add").hasRole(SimpleRoles.SuperAdmin)
+                .requestMatchers(HttpMethod.GET, "/products/*/delete").hasAnyRole(SimpleRoles.Admin, SimpleRoles.SuperAdmin)
                 .and()
                 .formLogin()// This is the line that generates a login page
                 .defaultSuccessUrl("/products");//	The page to go when you log in
