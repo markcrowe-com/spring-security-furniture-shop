@@ -9,25 +9,24 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("products")
 public class ProductWebController {
 
     @Autowired
     private ProductService productService;
 
-    @GetMapping
+    @GetMapping("/products")
     public ModelAndView getProducts()
     {
         var modelAndView = new ModelAndView("products");
-        modelAndView.addObject("productList", productService.getAllProducts());
+        modelAndView.addObject("productList", productService.getProducts());
         return modelAndView;
     }
 
-    @GetMapping("add")
+    @GetMapping("/products/add")
     public ModelAndView getInsertProduct()
     {
         var modelAndView = new ModelAndView("product-insert");
@@ -35,21 +34,21 @@ public class ProductWebController {
         return modelAndView;
     }
 
-    @PostMapping("add")
+    @PostMapping("/products/add")
     public String getInsertProduct(@Valid Product product, BindingResult bindingResult, ModelAndView model)
     {
         if(bindingResult.hasErrors())
             return "product-insert";
 
-        productService.addAProduct(product);
+        productService.addProduct(product);
 
         return "redirect:/products";
     }
 
-    @GetMapping("{code}/delete")
+    @GetMapping("/products/{code}/delete")
     public String deleteProductByCode(@PathVariable("code") String code)
     {
-        productService.deleteAProduct(code);
+        productService.deleteProductByCode(code);
         return "redirect:/products";
     }
 }
