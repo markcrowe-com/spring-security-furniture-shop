@@ -13,13 +13,13 @@ public class SimpleUserService {
 
     static List<SimpleUser> simpleUserList = new ArrayList<>();
 
-    private static final String defaultPassword = "pass";
+    private static final String DEFAULT_PASSWORD = "pass";
 
     static
     {
-        simpleUserList.add(new SimpleUser(defaultPassword,  SimpleRoles.SuperAdmin, "bob"));
-        simpleUserList.add(new SimpleUser(defaultPassword, SimpleRoles.Admin, "tom"));
-        simpleUserList.add(new SimpleUser(defaultPassword, SimpleRoles.User, "mary"));
+        simpleUserList.add(new SimpleUser(DEFAULT_PASSWORD,  SimpleRoles.SUPER_ADMIN, "bob"));
+        simpleUserList.add(new SimpleUser(DEFAULT_PASSWORD, SimpleRoles.ADMIN, "tom"));
+        simpleUserList.add(new SimpleUser(DEFAULT_PASSWORD, SimpleRoles.USER, "mary"));
     }
 
     public List<SimpleUser> getAllSimpleUsers() {

@@ -1,21 +1,21 @@
 package io.gitlab.markcrowe.furniture.shop.app.model;
 
-public class SimpleRoles
+public final class SimpleRoles
 {
-    public static final String Admin = "Admin";
-    public static final String SuperAdmin = "SuperAdmin";
-    public static final String User = "User";
+    public static final String ADMIN = "Admin";
+    public static final String SUPER_ADMIN = "SuperAdmin";
+    public static final String USER = "User";
 
     public static String getAllRoles()
     {
-        return Admin + "," + SuperAdmin + "," + User;
+        return ADMIN + "," + SUPER_ADMIN + "," + USER;
     }
     public static String getDeleteRoles()
     {
-        return Admin + "," + SuperAdmin;
+        return ADMIN + "," + SUPER_ADMIN;
     }
 
-    private SimpleRoles() throws Exception {
-        throw new Exception("Cannot create instance of SimpleRoles class");
+    private SimpleRoles() {
+        throw new IllegalStateException("Utility class");
     }
 }
