@@ -15,10 +15,10 @@
 <header>
     <h1>Product Catalog (Java Web 8)</h1>
     <div sec:authorize="!isAuthenticated()">
-        Welcome Guest, <a th:href="@{/login}">Login</a>
+        <p>Welcome Guest, <a th:href="@{/login}">Login</a></p>
     </div>
     <div sec:authorize="isAuthenticated()">
-        Welcome <span sec:authentication="name"></span>, <a th:href="@{/logout}">Logout</a>
+        <p>Welcome <span sec:authentication="name"></span>, <a th:href="@{/logout}">Logout</a></p>
     </div>
 </header>
 <main>

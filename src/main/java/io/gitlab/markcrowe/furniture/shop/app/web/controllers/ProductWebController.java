@@ -22,7 +22,7 @@ public class ProductWebController {
     public ModelAndView getProducts()
     {
         var modelAndView = new ModelAndView("products");
-        modelAndView.addObject("productList", productService.getAllProducts());
+        modelAndView.addObject("productList", productService.getProducts());
         return modelAndView;
     }
 
@@ -40,7 +40,7 @@ public class ProductWebController {
         if(bindingResult.hasErrors())
             return "product-insert";
 
-        productService.addAProduct(product);
+        productService.addProduct(product);
 
         return "redirect:/products";
     }
@@ -48,7 +48,7 @@ public class ProductWebController {
     @GetMapping("/products/{code}/delete")
     public String deleteProductByCode(@PathVariable("code") String code)
     {
-        productService.deleteAProduct(code);
+        productService.deleteProductByCode(code);
         return "redirect:/products";
     }
 }

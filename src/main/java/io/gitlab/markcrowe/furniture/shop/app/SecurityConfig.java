@@ -43,7 +43,7 @@ public class SecurityConfig {
     public InMemoryUserDetailsManager inMemoryUserDetailsManager(PasswordEncoder passwordEncoder)
     {
         var userDetailsList = new ArrayList<UserDetails>();
-        for (SimpleUser simpleUser : simpleUserService.getAllSimpleUsers() ) {
+        for (SimpleUser simpleUser : simpleUserService.getSimpleUsers() ) {
             UserDetails userDetails = User.withUsername(simpleUser.getUsername())
                     .password(passwordEncoder.encode(simpleUser.getPassword()))
                     .roles(simpleUser.getRoles())

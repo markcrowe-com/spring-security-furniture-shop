@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <title>Furniture Shop</title>
+    <meta charset="UTF-8">
 </head>
 <body>
-  <a th:href="@{/products}">Products</a>
-
+<a th:href="@{/products}">Products</a>
 <form method="post" th:action="@{/login}">
     <div>
-        <input type="hidden" name="username" value="bob" readonly  />
-        <input type="hidden" name="password" value="pass" readonly />
-        <input type="submit" value="Login Bob (SuperAdmin)" />
+        <input type="hidden" name="username" value="ann" readonly/>
+        <input type="hidden" name="password" value="pass" readonly/>
+        <button type="submit" class="btn btn-primary">Login Ann (User)</button>
     </div>
 </form>
-  <form method="post" th:action="@{/login}">
-      <div>
-          <input type="hidden" name="username" value="mary" readonly  />
-          <input type="hidden" name="password" value="pass" readonly />
-          <input type="submit" value="Login Mary (User)" />
-      </div>
-  </form>
-  <form method="post" th:action="@{/login}">
-      <div>
-          <input type="hidden" name="username" value="tom" readonly  />
-          <input type="hidden" name="password" value="pass" readonly />
-          <input type="submit" value="Login Tom (Admin)" />
-      </div>
-  </form>
+<form method="post" th:action="@{/login}">
+    <div>
+        <input type="hidden" name="username" value="tom" readonly/>
+        <input type="hidden" name="password" value="pass" readonly/>
+        <button type="submit" class="btn btn-primary">Login Tom (Admin)</button>
+    </div>
+</form>
+<form method="post" th:action="@{/login}">
+    <div>
+        <input type="hidden" name="username" value="bob" readonly/>
+        <input type="hidden" name="password" value="pass" readonly/>
+        <button type="submit" class="btn btn-primary">Login Bob (SuperAdmin)</button>
+    </div>
+</form>
 
-  <a th:href="@{/products/{code}/delete(code=${'XG809'})}">Delete Product XG809</a>
+<a th:href="@{/products/{code}/delete(code=${'XG809'})}">Delete Product XG809</a>
 </body>
 </html>
